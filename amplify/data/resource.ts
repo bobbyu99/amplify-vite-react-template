@@ -13,12 +13,10 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Foo: a
-    .model({
+  Foo: a.model({
       content: a.string(),
       isDone: a.boolean(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+    }).authorization((allow) => [allow.publicApiKey()]),
 });
 
 const combinedSchema = a.combine([schema, sqlSchema]);
